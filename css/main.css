@@ -1,0 +1,40 @@
+header.hero div.logo {
+    line-height: 120px;
+}
+
+header.hero div.logo>p {
+    display: inline;
+    font-size: 64px;
+    font-family: monospace;
+}
+
+header.hero div.traffic-tags {
+    cursor: pointer;
+}
+
+header.hero span.traffic-tag {
+    width: 64px;
+}
+
+div.container.config div.columns {
+    line-height: 30px;
+}
+
+div.container.tabs-hidden {
+    display: none;
+}
+
+div.columns>div.column.right-text {
+    text-align: right;
+}
+
+div.container.proxies div.flex-box {
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+}
+
+div.container.proxies div.group-list {
+    width: 280px;
+    margin: 20px auto;
+}

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ClashZ</title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="/css/bulma.min.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+</head>
+
+<body>
+    <div class="modal" id="setting">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box">
+                <aside class="menu">
+                    <p class="menu-label">
+                        General
+                    </p>
+                    <div class="notification is-danger" style="display: none;">
+                        Cannot Get Clash Config The connection to the server failed.
+                    </div>
+                    <div class="columns setting-form">
+                        <div class="column is-5"><input class="input" name="address" type="text" placeholder="localhost"></div>
+                        <div class="column is-2"><input class="input" name="port" type="text" placeholder="9090"></div>
+                        <div class="column is-3"><input class="input" name="secret" type="text" placeholder="secret"></div>
+                        <div class="column is-1"><a class="button is-info" id="setting-save">Save</a></div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+    <header class="hero is-info">
+        <div class="hero-body">
+            <div class="container">
+                <nav class="level">
+                    <div class="level-left">
+                        <div class="level-item has-text-centered">
+                            <div class="logo">
+                                <img src="/images/icons/logo-512.png" width="120px">
+                                <p><b>ClashZ</b></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="level-right">
+                        <div class="level-item has-text-centered">
+                            <div class="tags has-addons traffic-tags" id="setting-button">
+                                <span class="tag traffic-tag is-light" id="down-tag">↓ 0 B/s</span>
+                                <span class="tag traffic-tag is-dark" id="up-tag">↑ 0 B/s</span>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="container nav">
+        <div class="tabs is-fullwidth is-medium">
+            <ul>
+                <li class="tab-button" data-tab-name="proxies">
+                    <a>
+                        <span>Proxies</span>
+                    </a>
+                </li>
+                <li class="tab-button is-active" data-tab-name="config">
+                    <a>
+                        <span>Config</span>
+                    </a>
+                </li>
+                <li class="tab-button" data-tab-name="common">
+                    <a>
+                        <span>Common</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container tab-content config">
+        <div class="card">
+            <div class="card-content">
+                <form id="config-form">
+                    <div class="columns">
+                        <div class="column is-three-fifths is-offset-one-fifth">
+                            <div class="columns is-mobile">
+                                <div class="column is-one-third right-text">
+                                    Http Port:
+                                </div>
+                                <div class="column">
+                                    <input class="input" name="port" type="number" placeholder="7890" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="columns">
+                        <div class="column is-three-fifths is-offset-one-fifth">
+                            <div class="columns is-mobile">
+                                <div class="column is-one-third right-text">
+                                    Socks Port:
+                                </div>
+                                <div class="column">
+                                    <input class="input" name="socket-port" type="number" placeholder="7891" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="columns">
+                        <div class="column is-three-fifths is-offset-one-fifth">
+                            <div class="columns is-mobile">
+                                <div class="column is-one-third right-text">
+                                    Redir Port:
+                                </div>
+                                <div class="column">
+                                    <input class="input" name="redir-port" type="number" placeholder="7892" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="columns">
+                        <div class="column is-three-fifths is-offset-one-fifth">
+                            <div class="columns is-mobile">
+                                <div class="column is-one-third right-text">
+                                    Allow Lan:
+                                </div>
+                                <div class="column">
+                                    <div class="select">
+                                        <select name="allow-lan">
+                                            <option value="false">False</option>
+                                            <option value="true">True</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="columns">
+                        <div class="column is-three-fifths is-offset-one-fifth">
+                            <div class="columns is-mobile">
+                                <div class="column is-one-third right-text">
+                                    Mode:
+                                </div>
+                                <div class="column">
+                                    <div class="select">
+                                        <select name="mode">
+                                            <option value="Global">Global</option>
+                                            <option value="Rule">Rule</option>
+                                            <option value="Direct">Direct</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="columns">
+                        <div class="column is-three-fifths is-offset-one-fifth">
+                            <div class="columns is-mobile">
+                                <div class="column is-one-third right-text">
+                                    Log Level:
+                                </div>
+                                <div class="column">
+                                    <div class="select">
+                                        <select name="log-level">
+                                            <option value="info">info</option>
+                                            <option value="warning">warning</option>
+                                            <option value="error">error</option>
+                                            <option value="debug">debug</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="columns">
+                        <div class="column is-three-fifths is-offset-one-fifth">
+                            <div class="columns is-mobile">
+                                <div class="column is-one-third right-text">
+
+                                </div>
+                                <div class="column">
+                                    <button type="submit" class="button is-dark" id="config-save">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container tab-content proxies tabs-hidden">
+        <div class="card">
+            <div class="card-content flex-box">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container tab-content common tabs-hidden">
+        <div class="card">
+            <div class="card-content">
+
+                <table class="table is-fullwidth is-hoverable" id="logs-table">
+                    <thead>
+                        <tr>
+                            <th width="7%">Type</th>
+                            <th>Message</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <p>
+                    The Core <strong><a href="https://github.com/Dreamacro/clash">Clash</a></strong> by <a href="https://github.com/Dreamacro">Dreamacro</a>.
+                    Website <a href="https://github.com/lintmx/ClashZ">ClashZ</a> by <a href="https://lintmx.com">lintmx</a>. The source code is
+                    licensed
+                    <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
