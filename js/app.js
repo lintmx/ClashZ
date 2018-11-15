@@ -371,7 +371,7 @@
     // service worker
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker
-            .register('/sw.js')
+            .register('./sw.js')
             .then(function () {
                 console.log('[ClashZ - ServiceWorker] Registered')
             })
