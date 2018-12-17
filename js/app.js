@@ -214,8 +214,6 @@
                     return reader.read().then(processLogs)
                 }
 
-                
-
                 return reader.read().then(processLogs)
             })
         }).catch(error => {
