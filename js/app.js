@@ -321,7 +321,11 @@
 
     app.updateConfig = () => {
         for (let config in app.clashConfig) {
-            document.querySelector('div.config [name=' + config + ']').value = app.clashConfig[config]
+            try {
+                document.querySelector('div.config [name=' + config + ']').value = app.clashConfig[config]
+            } catch (err) {
+                console.log('div ' + config + ' not find')
+            }
         }
     }
 
